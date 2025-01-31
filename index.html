@@ -119,43 +119,17 @@
     <img src="logo.png" alt="FC Studio" class="logo">
     <h1>Coming Soon</h1>
     <p>Something exciting is in the works. We're crafting a unique experience just for you. Stay tuned for our launch.</p>
-    <form id="signup-form">
+    <form id="signup-form" action="https://formsubmit.co/860772f9740e1ce32feca499907f49f6" method="POST">
         <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="hidden" name="_next" id="redirect-input">
+        <input type="hidden" name="_subject" value="New FC Studio Subscriber!">
+        <input type="hidden" name="_captcha" value="false">
         <button type="submit">Notify Me</button>
     </form>
-    <div id="success-message" class="success-message">Thanks! We'll notify you when we launch.</div>
-    <div id="error-message" class="error-message">Oops! Something went wrong. Please try again.</div>
 
     <script>
-        const SUPABASE_URL = 'YOUR_SUPABASE_URL'
-        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'
-        
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-        
-        document.getElementById('signup-form').addEventListener('submit', async (e) => {
-            e.preventDefault()
-            
-            const form = e.target
-            const email = form.email.value
-            const successMessage = document.getElementById('success-message')
-            const errorMessage = document.getElementById('error-message')
-            
-            try {
-                const { data, error } = await supabase
-                    .from('email_subscribers')
-                    .insert([{ email, subscribed_at: new Date() }])
-                
-                if (error) throw error
-                
-                form.reset()
-                successMessage.style.display = 'block'
-                errorMessage.style.display = 'none'
-            } catch (error) {
-                console.error('Error:', error)
-                errorMessage.style.display = 'block'
-                successMessage.style.display = 'none'
-            }
-        })
+        // Set the redirect URL dynamically based on current domain
+        document.getElementById('redirect-input').value = window.location.origin + '/thanks.html';
     </script>
 </body>
 </html>

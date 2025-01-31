@@ -5,14 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thanks! - FC Studio</title>
     <style>
-        /* Same styles as index.html */
-        /* Copy all styles from above except form-related ones */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1c20 0%, #2d3436 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .logo {
+            width: 200px;
+            margin-bottom: 40px;
+            filter: brightness(0) invert(1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .home-button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #646cff 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(100, 108, 255, 0.4);
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: #4ade80;
+            stroke-miterlimit: 10;
+            margin: 10% auto 20px;
+            box-shadow: 0 0 20px #4ade8066;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <img src="logo.png" alt="FC Studio" class="logo">
+    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+    </svg>
     <h1>Thank You!</h1>
-    <p>We've received your email and will notify you as soon as we launch. Can't wait to show you what we're building!</p>
-    <a href="/" style="text-decoration: none;"><button>Back to Home</button></a>
+    <p>You're now on our exclusive launch list! We'll keep you updated on our progress and notify you as soon as we go live. Get ready for something extraordinary!</p>
+    <a href="/" class="home-button">Return to Home</a>
 </body>
 </html>
